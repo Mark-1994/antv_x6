@@ -32,6 +32,15 @@ export default {
             },
             mousewheel: {
                 enabled: true // 是否启用缩放
+            },
+            selecting: {
+                enabled: true, // 启用点选/框选
+                showNodeSelectionBox: true, // 是否显示节点的选择框
+                rubberband: true, // 启用框选
+                modifiers: 'ctrl' // 组合键
+            },
+            keyboard: {
+                enabled: true
             }
         })
         this.dagreLayout = new DagreLayout({
@@ -43,6 +52,26 @@ export default {
         })
         this.dagreLayout.layout(temData)
         this.graph.fromJSON(temData)
+        // 键盘 delete 事件
+        this.graph.bindKey(['delete'], (e) => {
+            const cells = this.graph.getSelectedCells()
+            if (cells.length) {
+                // 删除前移除所有包含工具
+                cells.forEach(currentCell => {
+                    currentCell.removeTools()
+                })
+                this.graph.removeCells(cells)
+            }
+        }, 'keydown')
+        // 双击进入编辑模式
+        this.graph.on('node:dblclick', ({ node, e }) => {
+            node.addTools({
+                name: 'node-editor',
+                args: {
+                    event: e
+                }
+            })
+        })
     },
     methods: {
         // 画布重绘
