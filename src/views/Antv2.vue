@@ -64,11 +64,18 @@ export default {
             }
         }, 'keydown')
         // 双击进入编辑模式
-        this.graph.on('node:dblclick', ({ node, e }) => {
+        this.graph.on('node:dblclick', ({ e, x, y, node, view }) => {
+            console.log(node)
+            console.log(x, y)
             node.addTools({
                 name: 'node-editor',
                 args: {
-                    event: e
+                    event: e,
+                    x,
+                    y,
+                    attrs: {
+                        // fontSize: 12
+                    }
                 }
             })
         })
