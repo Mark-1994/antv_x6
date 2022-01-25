@@ -15,8 +15,8 @@ export default {
     name: 'Antv2',
     data () {
         return {
-            graph: null,
-            dagreLayout: null
+            graph: {},
+            dagreLayout: {}
         }
     },
     mounted () {
@@ -71,13 +71,39 @@ export default {
                 name: 'node-editor',
                 args: {
                     event: e,
-                    x,
-                    y,
                     attrs: {
                         // fontSize: 12
                     }
                 }
             })
+        })
+        // 右键菜单
+        this.graph.on('node:contextmenu', ({ e, node, view }) => {
+            const { x, y } = e.originalEvent
+            // 创建节点
+            let conextMenuContainer = document.createElement('ul')
+            conextMenuContainer.id = 'contextMenu'
+            let textTem = ['运行', '编辑', '复制节点', '删除节点']
+            for (let i = 0; i < 4; i++) {
+                let liTem = document.createElement('li')
+                liTem.innerText = textTem[i]
+                liTem.addEventListener('mouseover', function () {
+                    this.style.backgroundColor = 'rgba(0, 0, 0, .03)'
+                    this.style.cursor = 'auto'
+                })
+                liTem.addEventListener('mouseout', function () {
+                    this.style.backgroundColor = '#fff'
+                })
+                conextMenuContainer.appendChild(liTem)
+            }
+            conextMenuContainer.style.listStyle = 'none'
+            conextMenuContainer.style.border = '1px solid #666'
+            conextMenuContainer.style.minWidth = '120px'
+            conextMenuContainer.style.backgroundColor = '#fff'
+            conextMenuContainer.style.position = 'fixed'
+            conextMenuContainer.style.left = x + 'px'
+            conextMenuContainer.style.top = y + 'px'
+            document.getElementById("container").appendChild(conextMenuContainer)
         })
     },
     methods: {
