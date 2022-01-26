@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { Graph, Shape, Addon } from '@antv/x6'
+import { Graph, Shape, Addon, Node } from '@antv/x6'
 import { DagreLayout } from '@antv/layout'
 import temData from './data.js'
 export default {
@@ -72,12 +72,13 @@ export default {
                 args: {
                     event: e,
                     attrs: {
-                        // fontSize: 12
+                        // fontSize: 12,
                     }
                 }
             })
         })
         // 右键菜单
+        let _this = this
         this.graph.on('node:contextmenu', ({ e, node, view }) => {
             const { x, y } = e.originalEvent
             // 创建节点
@@ -94,8 +95,14 @@ export default {
                 liTem.addEventListener('mouseout', function () {
                     this.style.backgroundColor = '#fff'
                 })
+                liTem.addEventListener('click', function () {
+                    _this.$Message.info(this.innerText)
+                })
                 conextMenuContainer.appendChild(liTem)
             }
+            // conextMenuContainer.addEventListener('mouseleave', function () {
+            //     this.remove()
+            // })
             conextMenuContainer.style.listStyle = 'none'
             conextMenuContainer.style.border = '1px solid #666'
             conextMenuContainer.style.minWidth = '120px'
@@ -105,11 +112,15 @@ export default {
             conextMenuContainer.style.top = y + 'px'
             document.getElementById("container").appendChild(conextMenuContainer)
         })
+        this.graph.on('blank:click', () => {
+            document.getElementById('contextMenu') && document.getElementById('contextMenu').remove()
+        })
     },
     methods: {
         // 画布重绘
         resetGraph () {
             this.graph.fromJSON(temData)
+            this.graph.centerContent() // 画布居中
         }
     }
 }
