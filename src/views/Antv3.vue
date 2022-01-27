@@ -10,7 +10,9 @@
 <script>
 import { Graph, Shape, Addon, Node, Cell } from "@antv/x6";
 import { DagreLayout } from "@antv/layout";
-import temData from "./data.js";
+import temData from "./er.json";
+const LINE_HEIGHT = 24;
+const NODE_WIDTH = 150;
 export default {
   name: "Antv2",
   data() {
@@ -20,8 +22,115 @@ export default {
     };
   },
   mounted() {
+    Graph.registerPortLayout(
+      "erPortPosition",
+      (portsPositionArgs) => {
+        return portsPositionArgs.map((_, index) => {
+          return {
+            position: {
+              x: 0,
+              y: (index + 1) * LINE_HEIGHT,
+            },
+            angle: 0,
+          };
+        });
+      },
+      true
+    );
+
+    Graph.registerNode(
+      "er-rect",
+      {
+        inherit: "rect",
+        markup: [
+          {
+            tagName: "rect",
+            selector: "body",
+          },
+          {
+            tagName: "text",
+            selector: "label",
+          },
+        ],
+        attrs: {
+          rect: {
+            strokeWidth: 1,
+            stroke: "#5F95FF",
+            fill: "#5F95FF",
+          },
+          label: {
+            fontWeight: "bold",
+            fill: "#ffffff",
+            fontSize: 12,
+          },
+        },
+        ports: {
+          groups: {
+            list: {
+              markup: [
+                {
+                  tagName: "rect",
+                  selector: "portBody",
+                },
+                {
+                  tagName: "text",
+                  selector: "portNameLabel",
+                },
+                {
+                  tagName: "text",
+                  selector: "portTypeLabel",
+                },
+              ],
+              attrs: {
+                portBody: {
+                  width: NODE_WIDTH,
+                  height: LINE_HEIGHT,
+                  strokeWidth: 1,
+                  stroke: "#5F95FF",
+                  fill: "#EFF4FF",
+                  magnet: true,
+                },
+                portNameLabel: {
+                  ref: "portBody",
+                  refX: 6,
+                  refY: 6,
+                  fontSize: 10,
+                },
+                portTypeLabel: {
+                  ref: "portBody",
+                  refX: 95,
+                  refY: 6,
+                  fontSize: 10,
+                },
+              },
+              position: "erPortPosition",
+            },
+          },
+        },
+      },
+      true
+    );
     this.graph = new Graph({
       container: document.getElementById("container"),
+      connecting: {
+        router: {
+          name: "er",
+          args: {
+            offset: 25,
+            direction: "H",
+          },
+        },
+        createEdge() {
+          return new Shape.Edge({
+            attrs: {
+              line: {
+                stroke: "#A2B1C3",
+                strokeWidth: 2,
+              },
+            },
+          });
+        },
+      },
       width: 800,
       height: 500,
       background: {

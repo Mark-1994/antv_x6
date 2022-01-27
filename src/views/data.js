@@ -39,11 +39,11 @@ module.exports = {
 					textVerticalAnchor: 'middle',
 					refX: '50%', // 设置元素 x 坐标
 					refY: '50%', // 设置元素 y 坐标
-					fontSize: 14,
+					fontSize: 14
 				},
 				buttonGroup: {
 					refX: '100%',
-					refY: '50%',
+					refY: '50%'
 				},
 				button: {
 					text: '2',
@@ -318,6 +318,79 @@ module.exports = {
 				}
 			}
 		},
+		{
+			id: 'node9',
+			label: '表A',
+			width: 150,
+			height: 24,
+			markup: [
+				{
+					tagName: 'rect',
+					selector: 'portBody',
+					groupSelector: 'commonStyle'
+				},
+				{
+					tagName: 'text',
+					selector: 'portNameLabel',
+					groupSelector: 'commonStyle'
+				}
+			],
+			ports: {
+				groups: {
+					list: {
+						markup: [
+							{
+								tagName: 'rect',
+								selector: 'portBody',
+							},
+							{
+								tagName: 'text',
+								selector: 'portNameLabel',
+							}
+						]
+					},
+				},
+			},
+			// ports: [
+			// 	{
+			// 		id: 'node9-1',
+			// 		group: 'list',
+			// 		attrs: {
+			// 			portNameLabel: {
+			// 				text: '字段1'
+			// 			}
+			// 		}
+			// 	},
+			// 	{
+			// 		id: 'node9-2',
+			// 		group: 'list',
+			// 		attrs: {
+			// 			portNameLabel: {
+			// 				text: '字段2'
+			// 			}
+			// 		}
+			// 	}
+			// ],
+			attrs: {
+				commonStyle: {
+					refWidth: '100%',
+					stroke: '#fff',
+					fill: '#5F95FF'
+				},
+				portBody: {
+					width: 150, // 宽度
+					height: 24, // 高度
+					strokeWidth: 1, // 边框宽度
+					stroke: '#5F95FF', // 边框颜色
+					fill: '#5F95FF', // 背景色
+					magnet: false // 当 magnet 属性为 true 时，表示该元素可以被链接，即在连线过程中可以被当做连线的起点或终点，与链接桩类似。
+				},
+				portNameLabel: {
+					ref: 'portBody',
+					fontSize: 14
+				}
+			}
+		}
 	],
 	// 边
 	edges: [
@@ -348,6 +421,6 @@ module.exports = {
 		{
 			source: 'node5', // String，必须，起始节点 id
 			target: 'node8', // String，必须，目标节点 id
-		},
-	],
-};
+		}
+	]
+}
