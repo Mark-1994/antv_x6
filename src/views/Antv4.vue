@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { Graph, Shape, Addon, Node, Cell, Edge } from "@antv/x6";
+import { Graph, Shape, Addon, Node, Cell } from "@antv/x6";
 import { DagreLayout } from "@antv/layout";
 import temData from "./data.js";
 export default {
@@ -67,9 +67,6 @@ export default {
       },
       "keydown"
     );
-    this.graph.on('node:collapse', (node) => {
-      console.log(node)
-    })
     // 双击进入编辑模式
     this.graph.on("node:dblclick", ({ e, x, y, node, view }) => {
       console.log(node);

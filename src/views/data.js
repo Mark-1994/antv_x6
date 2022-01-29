@@ -18,6 +18,20 @@ module.exports = {
 				{
 					tagName: 'text',
 					selector: 'label'
+				},
+				{
+					tagName: 'g',
+					selector: 'buttonGroup',
+					children: [
+						{
+							tagName: 'rect',
+							selector: 'button',
+						},
+						{
+							tagName: 'path',
+							selector: 'buttonSign',
+						},
+					],
 				}
 			],
 			attrs: {
@@ -43,14 +57,11 @@ module.exports = {
 				},
 				buttonGroup: {
 					refX: '100%',
-					refY: '50%'
+					refY: '25%'
 				},
 				button: {
-					text: '2',
 					fill: '#5F95FF',
 					stroke: 'none',
-					x: -10,
-					y: -10,
 					height: 20,
 					width: 30,
 					rx: 10,
@@ -60,7 +71,7 @@ module.exports = {
 				},
 				buttonSign: {
 					refX: 5,
-					refY: -5,
+					refY: 5,
 					stroke: '#FFFFFF',
 					strokeWidth: 1.6,
 				},
@@ -159,11 +170,11 @@ module.exports = {
 			],
 			attrs: {
 				image: {
-					xlinkHref: require('../assets/logo.png'),
-					width: 16,
-					height: 16,
+					xlinkHref: 'https://gw.alipayobjects.com/mdn/rms_43231b/afts/img/A*evDjT5vjkX0AAAAAAAAAAAAAARQnAQ',
+					width: 20,
+					height: 20,
 					x: 6,
-					y: 12
+					y: 10
 				},
 				label: {
 					textWrap: {
@@ -195,11 +206,11 @@ module.exports = {
 			],
 			attrs: {
 				image: {
-					xlinkHref: require('../assets/logo.png'),
-					width: 16,
-					height: 16,
+					xlinkHref: 'https://gw.alipayobjects.com/mdn/rms_43231b/afts/img/A*evDjT5vjkX0AAAAAAAAAAAAAARQnAQ',
+					width: 20,
+					height: 20,
 					x: 6,
-					y: 12
+					y: 10
 				},
 				label: {
 					textWrap: {
@@ -231,11 +242,11 @@ module.exports = {
 			],
 			attrs: {
 				image: {
-					xlinkHref: require('../assets/logo.png'),
-					width: 16,
-					height: 16,
+					xlinkHref: 'https://gw.alipayobjects.com/mdn/rms_43231b/afts/img/A*evDjT5vjkX0AAAAAAAAAAAAAARQnAQ',
+					width: 20,
+					height: 20,
 					x: 6,
-					y: 12
+					y: 10
 				},
 				label: {
 					textWrap: {
@@ -267,11 +278,11 @@ module.exports = {
 			],
 			attrs: {
 				image: {
-					xlinkHref: require('../assets/logo.png'),
-					width: 16,
-					height: 16,
+					xlinkHref: 'https://gw.alipayobjects.com/mdn/rms_43231b/afts/img/A*evDjT5vjkX0AAAAAAAAAAAAAARQnAQ',
+					width: 20,
+					height: 20,
 					x: 6,
-					y: 12
+					y: 10
 				},
 				label: {
 					textWrap: {
@@ -303,11 +314,11 @@ module.exports = {
 			],
 			attrs: {
 				image: {
-					xlinkHref: require('../assets/logo.png'),
-					width: 16,
-					height: 16,
+					xlinkHref: 'https://gw.alipayobjects.com/mdn/rms_43231b/afts/img/A*evDjT5vjkX0AAAAAAAAAAAAAARQnAQ',
+					width: 20,
+					height: 20,
 					x: 6,
-					y: 12
+					y: 10
 				},
 				label: {
 					textWrap: {
@@ -332,50 +343,100 @@ module.exports = {
 				{
 					tagName: 'text',
 					selector: 'portNameLabel',
-					groupSelector: 'commonStyle'
+					groupSelector: 'commonStyle1'
 				}
 			],
-			ports: {
-				groups: {
-					list: {
-						markup: [
-							{
-								tagName: 'rect',
-								selector: 'portBody',
-							},
-							{
-								tagName: 'text',
-								selector: 'portNameLabel',
-							}
-						]
-					},
-				},
-			},
-			// ports: [
-			// 	{
-			// 		id: 'node9-1',
-			// 		group: 'list',
-			// 		attrs: {
-			// 			portNameLabel: {
-			// 				text: '字段1'
+			// ports: {
+			// 	groups: {
+			// 		list: {
+			// 			markup: [
+			// 				{
+			// 					tagName: 'rect',
+			// 					selector: 'portBody'
+			// 				},
+			// 				{
+			// 					tagName: 'text',
+			// 					selector: 'portNameLabel'
+			// 				}
+			// 			],
+			// 			attrs: {
+			// 				portNameLabel: {
+			// 					text: '字段1'
+			// 				}
 			// 			}
-			// 		}
+			// 		},
 			// 	},
-			// 	{
-			// 		id: 'node9-2',
-			// 		group: 'list',
-			// 		attrs: {
-			// 			portNameLabel: {
-			// 				text: '字段2'
-			// 			}
-			// 		}
-			// 	}
-			// ],
+			// },
+			ports: [
+				{
+					id: 'node9-1',
+					markup: [
+						{
+							tagName: 'rect',
+							selector: 'portBody'
+						},
+						{
+							tagName: 'text',
+							selector: 'portNameLabel'
+						}
+					],
+					attrs: {
+						portBody: {
+							width: 150, // 宽度
+							height: 24, // 高度
+							x: 0,
+							y: 18,
+							strokeWidth: 1, // 边框宽度
+							stroke: '#5F95FF', // 边框颜色
+							fill: '#EFF4FF', // 背景色
+							magnet: false // 当 magnet 属性为 true 时，表示该元素可以被链接，即在连线过程中可以被当做连线的起点或终点，与链接桩类似。
+						},
+						portNameLabel: {
+							text: '字段1',
+							x: 58,
+							y: 35
+						}
+					}
+				},
+				{
+					id: 'node9-2',
+					markup: [
+						{
+							tagName: 'rect',
+							selector: 'portBody'
+						},
+						{
+							tagName: 'text',
+							selector: 'portNameLabel'
+						}
+					],
+					attrs: {
+						portBody: {
+							width: 150, // 宽度
+							height: 24, // 高度
+							x: 0,
+							y: 30,
+							strokeWidth: 1, // 边框宽度
+							stroke: '#5F95FF', // 边框颜色
+							fill: '#EFF4FF', // 背景色
+							magnet: false // 当 magnet 属性为 true 时，表示该元素可以被链接，即在连线过程中可以被当做连线的起点或终点，与链接桩类似。
+						},
+						portNameLabel: {
+							text: '字段2',
+							x: 58,
+							y: 47
+						}
+					}
+				}
+			],
 			attrs: {
 				commonStyle: {
 					refWidth: '100%',
 					stroke: '#fff',
 					fill: '#5F95FF'
+				},
+				commonStyle1: {
+					fill: '#fff'
 				},
 				portBody: {
 					width: 150, // 宽度
@@ -388,6 +449,252 @@ module.exports = {
 				portNameLabel: {
 					ref: 'portBody',
 					fontSize: 14
+				}
+			}
+		},
+		{
+			id: 'node10',
+			label: '表B',
+			width: 150,
+			height: 24,
+			markup: [
+				{
+					tagName: 'rect',
+					selector: 'portBody',
+					groupSelector: 'commonStyle'
+				},
+				{
+					tagName: 'text',
+					selector: 'portNameLabel',
+					groupSelector: 'commonStyle1'
+				}
+			],
+			ports: [
+				{
+					id: 'node10-1',
+					markup: [
+						{
+							tagName: 'rect',
+							selector: 'portBody'
+						},
+						{
+							tagName: 'text',
+							selector: 'portNameLabel'
+						}
+					],
+					attrs: {
+						portBody: {
+							width: 150, // 宽度
+							height: 24, // 高度
+							x: 0,
+							y: 18,
+							strokeWidth: 1, // 边框宽度
+							stroke: '#5F95FF', // 边框颜色
+							fill: '#EFF4FF', // 背景色
+							magnet: false // 当 magnet 属性为 true 时，表示该元素可以被链接，即在连线过程中可以被当做连线的起点或终点，与链接桩类似。
+						},
+						portNameLabel: {
+							text: '字段1',
+							x: 58,
+							y: 35
+						}
+					}
+				},
+				{
+					id: 'node10-2',
+					markup: [
+						{
+							tagName: 'rect',
+							selector: 'portBody'
+						},
+						{
+							tagName: 'text',
+							selector: 'portNameLabel'
+						}
+					],
+					attrs: {
+						portBody: {
+							width: 150, // 宽度
+							height: 24, // 高度
+							x: 0,
+							y: 30,
+							strokeWidth: 1, // 边框宽度
+							stroke: '#5F95FF', // 边框颜色
+							fill: '#EFF4FF', // 背景色
+							magnet: false // 当 magnet 属性为 true 时，表示该元素可以被链接，即在连线过程中可以被当做连线的起点或终点，与链接桩类似。
+						},
+						portNameLabel: {
+							text: '字段2',
+							x: 58,
+							y: 47
+						}
+					}
+				}
+			],
+			attrs: {
+				commonStyle: {
+					refWidth: '100%',
+					stroke: '#fff',
+					fill: '#5F95FF'
+				},
+				commonStyle1: {
+					fill: '#fff'
+				},
+				portBody: {
+					width: 150, // 宽度
+					height: 24, // 高度
+					strokeWidth: 1, // 边框宽度
+					stroke: '#5F95FF', // 边框颜色
+					fill: '#5F95FF', // 背景色
+					magnet: false // 当 magnet 属性为 true 时，表示该元素可以被链接，即在连线过程中可以被当做连线的起点或终点，与链接桩类似。
+				},
+				portNameLabel: {
+					ref: 'portBody',
+					fontSize: 14
+				}
+			}
+		},
+		{
+			id: 'node11',
+			label: '表AB',
+			width: 150,
+			height: 24,
+			markup: [
+				{
+					tagName: 'rect',
+					selector: 'portBody',
+					groupSelector: 'commonStyle'
+				},
+				{
+					tagName: 'text',
+					selector: 'portNameLabel',
+					groupSelector: 'commonStyle1'
+				}
+			],
+			ports: [
+				{
+					id: 'node11-1',
+					markup: [
+						{
+							tagName: 'rect',
+							selector: 'portBody'
+						},
+						{
+							tagName: 'text',
+							selector: 'portNameLabel'
+						}
+					],
+					attrs: {
+						portBody: {
+							width: 150, // 宽度
+							height: 24, // 高度
+							x: 0,
+							y: 13,
+							strokeWidth: 1, // 边框宽度
+							stroke: '#5F95FF', // 边框颜色
+							fill: '#EFF4FF', // 背景色
+							magnet: false // 当 magnet 属性为 true 时，表示该元素可以被链接，即在连线过程中可以被当做连线的起点或终点，与链接桩类似。
+						},
+						portNameLabel: {
+							text: '字段1',
+							x: 58,
+							y: 30
+						}
+					}
+				}
+			],
+			attrs: {
+				commonStyle: {
+					refWidth: '100%',
+					stroke: '#fff',
+					fill: '#5F95FF'
+				},
+				commonStyle1: {
+					fill: '#fff'
+				},
+				portBody: {
+					width: 150, // 宽度
+					height: 24, // 高度
+					strokeWidth: 1, // 边框宽度
+					stroke: '#5F95FF', // 边框颜色
+					fill: '#5F95FF', // 背景色
+					magnet: false // 当 magnet 属性为 true 时，表示该元素可以被链接，即在连线过程中可以被当做连线的起点或终点，与链接桩类似。
+				},
+				portNameLabel: {
+					ref: 'portBody',
+					fontSize: 14
+				}
+			}
+		},
+		{
+			id: 'node12', // String，节点的唯一标识
+			width: 120,   // Number，可选，节点大小的 width 值
+			height: 40,  // Number，可选，节点大小的 height 值
+			label: '服务接口', // String，节点标签
+			markup: [
+				{
+					tagName: 'rect',
+					selector: 'body'
+				},
+				{
+					tagName: 'image',
+					selector: 'image'
+				},
+				{
+					tagName: 'text',
+					selector: 'label'
+				}
+			],
+			attrs: {
+				image: {
+					xlinkHref: 'https://gw.alipayobjects.com/mdn/rms_43231b/afts/img/A*evDjT5vjkX0AAAAAAAAAAAAAARQnAQ',
+					width: 20,
+					height: 20,
+					x: 6,
+					y: 10
+				},
+				label: {
+					textWrap: {
+						ellipsis: true,
+						width: -50,
+						height: '50%' // 高度为参照元素高度的一半
+					}
+				}
+			}
+		},
+		{
+			id: 'node13', // String，节点的唯一标识
+			width: 120,   // Number，可选，节点大小的 width 值
+			height: 40,  // Number，可选，节点大小的 height 值
+			label: '标签A', // String，节点标签
+			markup: [
+				{
+					tagName: 'rect',
+					selector: 'body'
+				},
+				{
+					tagName: 'image',
+					selector: 'image'
+				},
+				{
+					tagName: 'text',
+					selector: 'label'
+				}
+			],
+			attrs: {
+				image: {
+					xlinkHref: 'https://gw.alipayobjects.com/mdn/rms_43231b/afts/img/A*evDjT5vjkX0AAAAAAAAAAAAAARQnAQ',
+					width: 20,
+					height: 20,
+					x: 6,
+					y: 10
+				},
+				label: {
+					textWrap: {
+						ellipsis: true,
+						width: -50,
+						height: '50%' // 高度为参照元素高度的一半
+					}
 				}
 			}
 		}
@@ -421,6 +728,30 @@ module.exports = {
 		{
 			source: 'node5', // String，必须，起始节点 id
 			target: 'node8', // String，必须，目标节点 id
+		},
+		{
+			source: 'node7', // String，必须，起始节点 id
+			target: 'node9', // String，必须，目标节点 id
+		},
+		{
+			source: 'node8', // String，必须，起始节点 id
+			target: 'node10', // String，必须，目标节点 id
+		},
+		{
+			source: 'node9', // String，必须，起始节点 id
+			target: 'node11', // String，必须，目标节点 id
+		},
+		{
+			source: 'node10', // String，必须，起始节点 id
+			target: 'node11', // String，必须，目标节点 id
+		},
+		{
+			source: 'node11', // String，必须，起始节点 id
+			target: 'node12', // String，必须，目标节点 id
+		},
+		{
+			source: 'node11', // String，必须，起始节点 id
+			target: 'node13', // String，必须，目标节点 id
 		}
 	]
 }
