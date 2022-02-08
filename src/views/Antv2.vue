@@ -46,7 +46,7 @@ export default {
     this.dagreLayout = new DagreLayout({
       type: "dagre",
       rankdir: "LR",
-      ranksep: "30", // 层间距
+      ranksep: "80", // 层间距
       nodesep: "10", // 节点间距
       controlPoints: true, // 是否保留布局连线的控制点
     });
@@ -121,14 +121,18 @@ export default {
       document.getElementById("container").appendChild(conextMenuContainer);
     });
     this.graph.on("blank:click", () => {
-      document.getElementById("contextMenu") &&
-        document.getElementById("contextMenu").remove();
+      document.getElementById("contextMenu") && document.getElementById("contextMenu").remove();
     });
+    this.graph.on("node:click", () => {
+      document.getElementById("contextMenu") && document.getElementById("contextMenu").remove();
+    })
+    this.graph.centerContent(); // 画布居中
   },
   methods: {
     // 画布重绘
     resetGraph() {
       this.graph.fromJSON(temData);
+      this.graph.scale(1); // 设置画布缩放比例
       this.graph.centerContent(); // 画布居中
     },
   },

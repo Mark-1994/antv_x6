@@ -35,6 +35,9 @@ module.exports = {
 				}
 			],
 			attrs: {
+				body: {
+					strokeWidth: 1,
+				},
 				image: {
 					xlinkHref: require('../assets/logo.png'),
 					width: 16,
@@ -97,6 +100,9 @@ module.exports = {
 				}
 			],
 			attrs: {
+				body: {
+					strokeWidth: 1,
+				},
 				image: {
 					xlinkHref: require('../assets/logo.png'),
 					width: 16,
@@ -133,6 +139,9 @@ module.exports = {
 				}
 			],
 			attrs: {
+				body: {
+					strokeWidth: 1,
+				},
 				image: {
 					xlinkHref: require('../assets/logo.png'),
 					width: 16,
@@ -169,6 +178,9 @@ module.exports = {
 				}
 			],
 			attrs: {
+				body: {
+					strokeWidth: 1,
+				},
 				image: {
 					xlinkHref: 'https://gw.alipayobjects.com/mdn/rms_43231b/afts/img/A*evDjT5vjkX0AAAAAAAAAAAAAARQnAQ',
 					width: 20,
@@ -205,6 +217,9 @@ module.exports = {
 				}
 			],
 			attrs: {
+				body: {
+					strokeWidth: 1,
+				},
 				image: {
 					xlinkHref: 'https://gw.alipayobjects.com/mdn/rms_43231b/afts/img/A*evDjT5vjkX0AAAAAAAAAAAAAARQnAQ',
 					width: 20,
@@ -241,6 +256,9 @@ module.exports = {
 				}
 			],
 			attrs: {
+				body: {
+					strokeWidth: 1,
+				},
 				image: {
 					xlinkHref: 'https://gw.alipayobjects.com/mdn/rms_43231b/afts/img/A*evDjT5vjkX0AAAAAAAAAAAAAARQnAQ',
 					width: 20,
@@ -277,6 +295,9 @@ module.exports = {
 				}
 			],
 			attrs: {
+				body: {
+					strokeWidth: 1,
+				},
 				image: {
 					xlinkHref: 'https://gw.alipayobjects.com/mdn/rms_43231b/afts/img/A*evDjT5vjkX0AAAAAAAAAAAAAARQnAQ',
 					width: 20,
@@ -313,6 +334,9 @@ module.exports = {
 				}
 			],
 			attrs: {
+				body: {
+					strokeWidth: 1,
+				},
 				image: {
 					xlinkHref: 'https://gw.alipayobjects.com/mdn/rms_43231b/afts/img/A*evDjT5vjkX0AAAAAAAAAAAAAARQnAQ',
 					width: 20,
@@ -646,6 +670,9 @@ module.exports = {
 				}
 			],
 			attrs: {
+				body: {
+					strokeWidth: 1,
+				},
 				image: {
 					xlinkHref: 'https://gw.alipayobjects.com/mdn/rms_43231b/afts/img/A*evDjT5vjkX0AAAAAAAAAAAAAARQnAQ',
 					width: 20,
@@ -682,6 +709,9 @@ module.exports = {
 				}
 			],
 			attrs: {
+				body: {
+					strokeWidth: 1,
+				},
 				image: {
 					xlinkHref: 'https://gw.alipayobjects.com/mdn/rms_43231b/afts/img/A*evDjT5vjkX0AAAAAAAAAAAAAARQnAQ',
 					width: 20,
@@ -704,54 +734,201 @@ module.exports = {
 		{
 			source: 'node1', // String，必须，起始节点 id
 			target: 'node2', // String，必须，目标节点 id
+			attrs: {
+				line: {
+					strokeWidth: 1
+				}
+			}
 		},
 		{
 			source: 'node1', // String，必须，起始节点 id
 			target: 'node3', // String，必须，目标节点 id
+			attrs: {
+				line: {
+					strokeWidth: 1
+				}
+			}
 		},
 		{
 			source: 'node2', // String，必须，起始节点 id
 			target: 'node4', // String，必须，目标节点 id
+			attrs: {
+				line: {
+					strokeWidth: 1
+				}
+			}
 		},
 		{
 			source: 'node2', // String，必须，起始节点 id
 			target: 'node5', // String，必须，目标节点 id
+			attrs: {
+				line: {
+					strokeWidth: 1
+				}
+			}
 		},
 		{
 			source: 'node3', // String，必须，起始节点 id
 			target: 'node6', // String，必须，目标节点 id
+			attrs: {
+				line: {
+					strokeWidth: 1
+				}
+			}
 		},
 		{
 			source: 'node5', // String，必须，起始节点 id
 			target: 'node7', // String，必须，目标节点 id
+			attrs: {
+				line: {
+					strokeWidth: 1
+				}
+			}
 		},
 		{
 			source: 'node5', // String，必须，起始节点 id
 			target: 'node8', // String，必须，目标节点 id
+			attrs: {
+				line: {
+					strokeWidth: 1
+				}
+			}
 		},
 		{
 			source: 'node7', // String，必须，起始节点 id
-			target: 'node9', // String，必须，目标节点 id
+			target: {
+				cell: 'node9',
+				port: 'node9-1'
+			},
+			attrs: {
+				line: {
+					strokeWidth: 1
+				}
+			},
+			router: {
+				name: 'er',
+				args: {
+					direction: 'H'
+				}
+			}
+		},
+		{
+			source: 'node7', // String，必须，起始节点 id
+			target: {
+				cell: 'node9',
+				port: 'node9-2'
+			},
+			attrs: {
+				line: {
+					strokeWidth: 1
+				}
+			},
+			router: {
+				name: 'er',
+				args: {
+					direction: 'H'
+				}
+			}
 		},
 		{
 			source: 'node8', // String，必须，起始节点 id
-			target: 'node10', // String，必须，目标节点 id
+			target: {
+				cell: 'node10',
+				port: 'node10-1'
+			},
+			attrs: {
+				line: {
+					strokeWidth: 1
+				}
+			},
+			router: {
+				name: 'er',
+				args: {
+					direction: 'H'
+				}
+			}
 		},
 		{
-			source: 'node9', // String，必须，起始节点 id
-			target: 'node11', // String，必须，目标节点 id
+			source: 'node8', // String，必须，起始节点 id
+			target: {
+				cell: 'node10',
+				port: 'node10-2'
+			},
+			attrs: {
+				line: {
+					strokeWidth: 1
+				}
+			},
+			router: {
+				name: 'er',
+				args: {
+					direction: 'H'
+				}
+			}
 		},
 		{
-			source: 'node10', // String，必须，起始节点 id
-			target: 'node11', // String，必须，目标节点 id
+			source: {
+				cell: 'node9',
+				port: 'node9-2'
+			},
+			target: {
+				cell: 'node11',
+				port: 'node11-1'
+			},
+			attrs: {
+				line: {
+					strokeWidth: 1
+				}
+			},
+			router: {
+				name: 'er',
+				args: {
+					direction: 'H'
+				}
+			}
+		},
+		{
+			source: {
+				cell: 'node10',
+				port: 'node10-1'
+			},
+			target: {
+				cell: 'node11',
+				port: 'node11-1'
+			},
+			attrs: {
+				line: {
+					strokeWidth: 1
+				}
+			},
+			router: {
+				name: 'er',
+				// name: 'manhattan',
+				args: {
+					direction: 'H'
+				}
+			}
 		},
 		{
 			source: 'node11', // String，必须，起始节点 id
 			target: 'node12', // String，必须，目标节点 id
+			attrs: {
+				line: {
+					strokeWidth: 1
+				}
+			}
 		},
 		{
-			source: 'node11', // String，必须，起始节点 id
+			source: {
+				cell: 'node11',
+				port: 'node11-1'
+			},
 			target: 'node13', // String，必须，目标节点 id
+			attrs: {
+				line: {
+					strokeWidth: 1
+				}
+			}
 		}
 	]
 }
