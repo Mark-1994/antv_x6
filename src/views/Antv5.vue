@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { Graph, Shape, Addon, Node, Cell, Edge } from "@antv/x6";
+import { Graph, Shape, Addon, Node, Cell } from "@antv/x6";
 import { DagreLayout } from "@antv/layout";
 import temData from "./data.js";
 export default {
@@ -46,7 +46,7 @@ export default {
     this.dagreLayout = new DagreLayout({
       type: "dagre",
       rankdir: "LR",
-      ranksep: "80", // 层间距
+      ranksep: "30", // 层间距
       nodesep: "10", // 节点间距
       controlPoints: true, // 是否保留布局连线的控制点
     });
@@ -67,11 +67,6 @@ export default {
       },
       "keydown"
     );
-    this.graph.on('node:collapse', (node) => {
-      console.log(node)
-      temData.edges[0].target = 'node4'
-      this.graph.fromJSON(temData)
-    })
     // 双击进入编辑模式
     this.graph.on("node:dblclick", ({ e, x, y, node, view }) => {
       console.log(node);
@@ -123,18 +118,14 @@ export default {
       document.getElementById("container").appendChild(conextMenuContainer);
     });
     this.graph.on("blank:click", () => {
-      document.getElementById("contextMenu") && document.getElementById("contextMenu").remove();
+      document.getElementById("contextMenu") &&
+        document.getElementById("contextMenu").remove();
     });
-    this.graph.on("node:click", () => {
-      document.getElementById("contextMenu") && document.getElementById("contextMenu").remove();
-    })
-    this.graph.centerContent(); // 画布居中
   },
   methods: {
     // 画布重绘
     resetGraph() {
       this.graph.fromJSON(temData);
-      this.graph.scale(1); // 设置画布缩放比例
       this.graph.centerContent(); // 画布居中
     },
   },
