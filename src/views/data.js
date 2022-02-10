@@ -70,7 +70,7 @@ module.exports = {
 					rx: 10,
 					ry: 10,
 					cursor: 'pointer',
-					event: 'node:collapse',
+					event: 'node:collapse', // 自定义事件
 				},
 				buttonSign: {
 					refX: 5,

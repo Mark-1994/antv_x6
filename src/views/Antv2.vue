@@ -69,8 +69,8 @@ export default {
     );
     this.graph.on('node:collapse', (node) => {
       console.log(node)
-      temData.edges[0].target = 'node4'
-      this.graph.fromJSON(temData)
+      // temData.edges[0].target = 'node4'
+      // this.graph.fromJSON(temData)
     })
     // 双击进入编辑模式
     this.graph.on("node:dblclick", ({ e, x, y, node, view }) => {
